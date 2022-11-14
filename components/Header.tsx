@@ -1,9 +1,11 @@
 import { BellIcon, SearchIcon } from "@heroicons/react/solid"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import useAuth from "../hooks/useAuth";
 
 function Header() {
     const [isScrolled, setisScrolled] = useState(false);
+    const { logout } = useAuth()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,13 +46,14 @@ function Header() {
                 <SearchIcon className="hidden sm:inline h-6 w-8" />
                 <p className="hidden lg:inline">Kids</p>
                 <BellIcon className="h-6 w-8" />
-                <Link href="/account">
+                {/* <Link href="/account"> */}
                     <img
+                        onClick={logout}
                         src="https://occ-0-1190-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
                         alt=""
                         className="cursor-pointer rounded"
                     />
-                </Link>
+                {/* </Link> */}
             </div>
         </header>
     )
